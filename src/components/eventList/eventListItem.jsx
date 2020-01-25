@@ -26,9 +26,9 @@ class EventListItem extends Component {
 								src="https://randomuser.me/api/portraits/women/42.jpg"
 							/>
 							<Item.Content>
-								<Item.Header as="a">{title}</Item.Header>
+								<Item.Header >{title}</Item.Header>
 								<Item.Description>
-									Hosted by <a>{hostedBy}</a>
+									Hosted by {hostedBy}
 								</Item.Description>
 							</Item.Content>
 						</Item>
@@ -42,7 +42,7 @@ class EventListItem extends Component {
 				</Segment>
 				<Segment secondary>
 					<List horizontal>
-						{attendees.map(attendee => (
+						{attendees && attendees.map(attendee => (
 							<EventListUsed key={attendee.id} attendee={attendee} />
 						))}
 					</List>
