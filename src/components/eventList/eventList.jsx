@@ -1,24 +1,24 @@
 import React, { Component, Fragment } from 'react';
 import EventListItem from './eventListItem';
-
+// rcc
 class EventList extends Component {
 
-render() {
+	render() {
 
-	const { events, selectEvent,deleteEvent } = this.props
-	return (
-		<Fragment>
-			{events.map(event => (
-				<EventListItem 
-				key={event.key}
-				deleteEvent={deleteEvent}
-				 event={event} 
-				 selectEvent={selectEvent}
-				 />
-			))}
-		</Fragment>
-	);
-}
+		const { events, selectEvent, deleteEvent } = this.props
+		return (
+			<Fragment>
+				{events.map(event => (
+					<EventListItem
+						key={event.id}
+						deleteEvent={deleteEvent}
+						event={event}
+						selectEvent={selectEvent}
+					/>
+				))}
+			</Fragment>
+		);
+	}
 }
 
 export default EventList;

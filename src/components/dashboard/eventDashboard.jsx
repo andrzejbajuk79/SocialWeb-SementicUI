@@ -50,20 +50,21 @@ class EventDashboard extends Component {
 			selectedEvent: null
 		}))
 	}
- handledeleteEvent = id => {
-	 this.setState(({events})=>({
-		 events: events.filter(e =>e.id !== id)
-	 }))
- }
+	handledeleteEvent = id => {
+		this.setState(({ events }) => ({
+			events: events.filter(e => e.id !== id)
+		}))
+	}
 	render() {
 		const { events, isOpen, selectedEvent } = this.state;
 		return (
 			<Grid>
 				<Grid.Column width={10}>
 					<EventList
+						key={events.length}
 						events={events}
-						deleteEvent={this.handledeleteEvent}
-						selectEvent={this.handleSelectEvent} />
+					deleteEvent={this.handledeleteEvent}
+					selectEvent={this.handleSelectEvent} />
 				</Grid.Column>
 				<Grid.Column width={6}>
 					<Button
@@ -73,10 +74,10 @@ class EventDashboard extends Component {
 					/>
 					{isOpen && (
 						<EventForm
-						//zeby formularz sie aktualizowal w  zaleznosci od kliknietego
-						//eventu w dashbordzie musimy dac unikalny KEY parametr
+							//zeby formularz sie aktualizowal w  zaleznosci od kliknietego
+							//eventu w dashbordzie musimy dac unikalny KEY parametr
 							key={selectedEvent ? selectedEvent.id : 0}
-							updateEvent={this.handleUpdateEvent }
+							updateEvent={this.handleUpdateEvent}
 							selectedEvent={selectedEvent}
 							createEvent={this.handleCreateEvent}
 							cancelFormOpen={this.handleFormCancel}

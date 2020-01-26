@@ -3,14 +3,15 @@ import { Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
 
-import EventDashboard from '../dashboard/eventDashboard';
-import NavBar from '../navbar/navbar';
-import HomePage from '../pages/home/homePage';
-import EventDetailPage from '../pages/eventDetails/eventDetailPage';
-import PeopleDashboard from './../pages/user/peopleDashboard/peopleDashboard';
-import UserDetailPage from './../pages/user/userDetail/userDetailPage';
-import SettingDashboard from './../pages/user/settings/settingDashboard';
-import EventForm from './../eventForm/eventForm';
+import EventDashboard from './components/dashboard/eventDashboard';
+import NavBar from './components/navbar/navbar';
+import HomePage from './components/pages/home/homePage';
+import EventDetailPage from './components/pages/eventDetails/eventDetailPage';
+import PeopleDashboard from './components/pages/user/peopleDashboard/peopleDashboard';
+import UserDetailPage from './components/pages/user/userDetail/userDetailPage';
+import SettingDashboard from './components/pages/user/settings/settingDashboard';
+import EventForm from './components/eventForm/eventForm';
+import TestComponent from './playground/testComponent';
 
 
 
@@ -29,6 +30,7 @@ class App extends Component {
 							<Route path='/profile/:id' component={UserDetailPage} />
 							<Route path='/settings' component={SettingDashboard} />
 							<Route path='/createEvent' component={EventForm} />
+							<Route path='/test' component={TestComponent} />
 						</Container>
 					</Fragment>
 				)} />

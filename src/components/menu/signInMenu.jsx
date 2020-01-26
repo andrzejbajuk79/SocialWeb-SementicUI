@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Menu, Image, Dropdown } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-
-const SignInMenu =({signOut}) => {
-  
+// rafc
+const SignInMenu =({signOut}) => {  
     return (
       // s_6.5.1
           <Menu.Item position="right">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Container, Button } from 'semantic-ui-react';
-import { NavLink, Link,withRouter } from 'react-router-dom';
+import { NavLink, Link, withRouter } from 'react-router-dom';
 import SignOutMenu from '../menu/signOutMenu';
 import SignInMenu from '../menu/signInMenu';
 
@@ -10,8 +10,11 @@ class NavBar extends Component {
   }
   handleSignIn = () =>
     this.setState({ authenticated: true })
-    handleSignOut = () =>
-    {this.setState({ authenticated: false})
+  
+  handleSignOut = () => {
+    // zeby z poziomu NAVBAR miec dostep do histoty i push
+    // uzywamy WITHROUTER
+    this.setState({ authenticated: false })
     this.props.history.push('/')
   }
 
@@ -26,17 +29,18 @@ class NavBar extends Component {
                 </Menu.Item>
           <Menu.Item as={NavLink} to='/events' name="Events" />
           <Menu.Item as={NavLink} to='/people' name="People" />
+          <Menu.Item as={NavLink} to='/test' name="Test" />
           <Menu.Item>
             <Button
               as={Link} to='/createEvent'
               floated="right"
               positive inverted content="Nowy Event" />
           </Menu.Item>
-          {authenticated 
+          {authenticated
             ?
-             <SignInMenu signOut={this.handleSignOut}/>
-              : 
-              <SignOutMenu signIn={this.handleSignIn}/>}
+            <SignInMenu signOut={this.handleSignOut} />
+            :
+            <SignOutMenu signIn={this.handleSignIn} />}
         </Container>
       </Menu>
     );

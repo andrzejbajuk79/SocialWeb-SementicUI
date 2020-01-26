@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Segment, Item, Icon, Button, List } from 'semantic-ui-react';
 import EventListUsed from './eventListUsed';
 
+// racc rafc
 class EventListItem extends Component {
 	render() {
 		const { event, selectEvent, deleteEvent } = this.props;

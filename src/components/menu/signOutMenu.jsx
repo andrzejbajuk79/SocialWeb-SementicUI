@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Menu, Button } from 'semantic-ui-react';
-
+//rafc
 const SignOutMenu = ({ signIn }) => {
   return (
     <Menu.Item position="right">
-      <Button 
-      onClick={signIn} 
-      basic 
-      inverted 
-      content="Login" />
+      <Button
+        onClick={signIn}
+        basic
+        inverted
+        content="Login" />
       <Button
         basic
         inverted
@@ -18,5 +18,8 @@ const SignOutMenu = ({ signIn }) => {
   )
 
 }
+
+
+
 
 export default SignOutMenu;
