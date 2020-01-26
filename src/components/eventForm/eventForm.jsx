@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Segment, Button } from 'semantic-ui-react';
-import FormInput from '../form-input/form-input.component';
+//  import FormInput from '../form-input/form-input.component';
 
 class EventForm extends Component {
 	state = {
@@ -35,14 +35,16 @@ class EventForm extends Component {
 			//snippet  s_3_4_3
 			<Segment>
 				<Form autoComplete="off" onSubmit={this.handleFormSubmit}>
-					<FormInput
-						type="text"
-						name="title"
-						value={title}
-						onChange={this.handleInputChange}
-						label="Event Title"
-						required
-					/>
+					<Form.Field>
+						<label>Event Title</label>
+						<input
+							onChange={this.handleInputChange}
+							name="title"
+							value={title}
+							placeholder="Event title"
+						/>
+					</Form.Field>
+
 					<Form.Field>
 						<label>Event Date</label>
 						<input
@@ -105,3 +107,11 @@ export default EventForm;
 // 	/>
 // </Form.Field></Form.Field>
 
+// <FormInput
+// type="text"
+// name="title"
+// value={title}
+// onChange={this.handleInputChange}
+// label="Event Title"
+// required
+// />

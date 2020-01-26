@@ -53,7 +53,7 @@ class EventListItem extends Component {
 						as="a"
 						color="teal"
 						floated="right"
-						content="Dodaj" />
+						content="Edytuj" />
 
 				</Segment>
 			</Segment.Group>
