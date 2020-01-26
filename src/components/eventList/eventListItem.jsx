@@ -4,16 +4,9 @@ import EventListUsed from './eventListUsed';
 
 class EventListItem extends Component {
 	render() {
+		const { event, selectEvent, deleteEvent } = this.props;
 		const {
-			title,
-			date,
-			category,
-			description,
-			city,
-			venue,
-			hostedBy,
-			hostPhotoURL,
-			attendees
+			title, date, category, description, city, venue, hostedBy, hostPhotoURL, attendees
 		} = this.props.event;
 		return (
 			<Segment.Group>
@@ -49,7 +42,19 @@ class EventListItem extends Component {
 				</Segment>
 				<Segment clearing>
 					<span>{description}</span>
-					<Button as="a" color="teal" floated="right" content="View" />
+					<Button
+						onClick={() => deleteEvent(event.id)}
+						as="a"
+						color="red"
+						floated="right"
+						content="Delete" />
+					<Button
+						onClick={() => selectEvent(event)}
+						as="a"
+						color="teal"
+						floated="right"
+						content="View" />
+
 				</Segment>
 			</Segment.Group>
 		);
