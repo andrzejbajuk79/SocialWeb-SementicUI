@@ -69,7 +69,7 @@ class EventDashboard extends Component {
 					<Button
 						onClick={this.handleCreateFormOpen}
 						positive
-						content="Create Event"
+						content="Nowy Event"
 					/>
 					{isOpen && (
 						<EventForm

@@ -47,13 +47,13 @@ class EventListItem extends Component {
 						as="a"
 						color="red"
 						floated="right"
-						content="Delete" />
+						content="Usuń" />
 					<Button
 						onClick={() => selectEvent(event)}
 						as="a"
 						color="teal"
 						floated="right"
-						content="View" />
+						content="Dodaj" />
 
 				</Segment>
 			</Segment.Group>

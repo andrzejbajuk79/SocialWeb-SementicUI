@@ -83,10 +83,10 @@ class EventForm extends Component {
 						/>
 					</Form.Field>
 					<Button positive type="submit">
-						Submit
+						Dodaj
 					</Button>
 					<Button onClick={cancelFormOpen} type="button">
-						Cancel
+						Anuluj
 					</Button>
 				</Form>
 			</Segment>
