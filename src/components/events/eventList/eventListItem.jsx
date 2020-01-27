@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Segment, Item, Icon, Button, List } from 'semantic-ui-react';
 import EventListUsed from './eventListUsed';
+import { Link } from 'react-router-dom';
 
 // racc rafc
 class EventListItem extends Component {
 	render() {
-		const { event, selectEvent, deleteEvent } = this.props;
+		const { event, deleteEvent } = this.props;
 		const {
 			title, date, category, description, city, venue, hostedBy, hostPhotoURL, attendees
 		} = this.props.event;
@@ -50,8 +51,8 @@ class EventListItem extends Component {
 						floated="right"
 						content="Usuń" />
 					<Button
-						onClick={() => selectEvent(event)}
-						as="a"
+						as={Link}
+						to={`/events/${event.id}`}
 						color="teal"
 						floated="right"
 						content="Edytuj" />

@@ -1,11 +1,11 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from './testConstants';
-import { createReducer } from './../redux/common/util/reducersUtils';
+import { createReducer } from '../../common/util/reducersUtils';
+
 
 
 const INITIAL_STATE = {
   data: 42
 }
-
 const  increment = (state)=> {
   return { ...state, data: state.data + 1 }
 }

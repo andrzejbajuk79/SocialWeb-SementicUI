@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
 import { Form, Segment, Button } from 'semantic-ui-react';
-//  import FormInput from '../form-input/form-input.component';
 
-class EventForm extends Component {
-	state = {
+import { connect } from 'react-redux'
+
+import { updateEvent, createEvent } from '../eventActions'
+import cuid from 'cuid';
+
+
+
+const mapState = (state, ownProps) => {
+	const eventId = ownProps.match.params.id;
+	let event = {
 		title: '',
 		date: '',
 		city: '',
 		venue: '',
 		hostedBy: ''
-	};
+	}
+	if (eventId && state.events.length > 0) {
+		event = state.events.filter(event => event.id === eventId)[0]
+	}
+	return { event }
+}
+
+const actions = { updateEvent, createEvent }
+class EventForm extends Component {
+	state = { ...this.props.event };
 	componentDidMount() {
 		if (this.props.selectedEvent !== null) {
 			this.setState({ ...this.props.selectedEvent })
@@ -20,8 +36,15 @@ class EventForm extends Component {
 		e.preventDefault();
 		if (this.state.id) {
 			this.props.updateEvent(this.state)
+			this.props.history.push(`/events/${this.state.id}`)
 		} else {
-			this.props.createEvent(this.state)
+			const newEvent = {
+				...this.state,
+				id: cuid(),
+				hostPhotoURL: 'assets/images/user.png'
+			}
+			this.props.createEvent(newEvent);
+			this.props.history.push(`/events`)
 		}
 
 	};
@@ -29,7 +52,6 @@ class EventForm extends Component {
 		this.setState({ [name]: value });
 	};
 	render() {
-		const { cancelFormOpen } = this.props;
 		const { title, date, city, venue, hostedBy } = this.state;
 		return (
 			//snippet  s_3_4_3
@@ -87,7 +109,7 @@ class EventForm extends Component {
 					<Button positive type="submit">
 						Dodaj
 					</Button>
-					<Button onClick={cancelFormOpen} type="button">
+					<Button onClick={this.props.history.goBack} type="button">
 						Anuluj
 					</Button>
 				</Form>
@@ -95,7 +117,7 @@ class EventForm extends Component {
 		);
 	}
 }
-export default EventForm;
+export default connect(mapState, actions)(EventForm);
 
 // <Form.Field>
 // 	<label>Event Title</label>

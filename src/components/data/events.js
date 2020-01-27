@@ -1,5 +1,6 @@
 // s_s_7_1
- export const Events = [
+
+export const Events = [
 	{
 		id: '1',
 		title: 'Trip to Tower of London',
@@ -48,4 +49,5 @@
 			}
 		]
 	}
-]
+];
+
